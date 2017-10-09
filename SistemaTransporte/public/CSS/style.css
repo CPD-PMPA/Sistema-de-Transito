@@ -110,6 +110,8 @@ input, select {
     margin-top: 40px;
     position: relative;
     padding: 40px;
+    margin-bottom: -50px;
+    height: 100%;
 }
 
 header {
@@ -120,6 +122,26 @@ header {
     height: 85px;
     position: relative;
     font-size: 20px;
+}
+
+header ul {
+    margin-top: 15px;
+}
+
+header ul li {
+    display: inline-block;  
+}
+
+header ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    margin: 10px;
+    transition: 1s;
+}
+
+header ul li a:hover {
+    transition: 0.5s;
+    color: rgb(194, 17, 17);
 }
 
 .logo {
