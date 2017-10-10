@@ -245,3 +245,69 @@ header ul li a:hover {
     width: 310px;
     transition: 0.5s;
 }
+
+.ola p {
+    font-size: 30px;
+    color: rgb(194, 17, 17);
+}
+
+.ola p span {
+    font-weight: bold;
+}
+
+.btnhome {
+    background: #272829;
+    font-family: Arial;
+    color: #ffffff;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    width: 31%;
+    height: 125px;
+    font-size: 35px;
+    margin: 8px;
+    border-radius: 30px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.btnhome:hover {
+    background: rgb(194, 17, 17);
+    text-decoration: none;
+}
+
+.btnhome span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.btnhome span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.btnhome:hover span {
+    padding-right: 25px;
+}
+
+.btnhome:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.btn-singin {
+    background: #272829;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 25px !important;
+}
+
+.btn-singin:hover {
+    background: rgb(194, 17, 17);
+    text-decoration: none;
+}
