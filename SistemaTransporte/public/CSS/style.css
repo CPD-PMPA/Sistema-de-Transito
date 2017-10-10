@@ -195,8 +195,8 @@ select {
 
 .content {
     background-color: rgba(255, 255, 255, 0.75);
-    border-bottom: 3px solid rgb(194, 17, 17);
-    border-top: 3px solid rgb(194, 17, 17);
+    border-bottom: 3px solid rgb(29, 17, 194);
+    border-top: 3px solid rgb(29, 17, 194);
     margin-top: 40px;
     position: relative;
     padding: 40px;
@@ -208,7 +208,7 @@ header {
     background-color: rgba(255, 255, 255, 0.75);
     width: 100%;
     padding-top: 20px;
-    border-bottom: 3px solid rgb(194, 17, 17);
+    border-bottom: 3px solid rgb(29, 17, 194);
     height: 85px;
     position: relative;
     font-size: 20px;
@@ -231,7 +231,21 @@ header ul li a {
 
 header ul li a:hover {
     transition: 0.5s;
-    color: rgb(194, 17, 17);
+    color: rgb(29, 17, 194);
+}
+
+footer {
+    background-color: rgba(255, 255, 255, 0.75);
+    border-top: 3px solid rgb(29, 17, 194);
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 0 auto;
+}
+
+footer .fontup {
+    font-size: 18px;
 }
 
 .logo {
@@ -248,7 +262,7 @@ header ul li a:hover {
 
 .ola p {
     font-size: 30px;
-    color: rgb(194, 17, 17);
+    color: rgb(29, 17, 194);
 }
 
 .ola p span {
@@ -271,7 +285,7 @@ header ul li a:hover {
 }
 
 .btnhome:hover {
-    background: rgb(194, 17, 17);
+    background: rgb(29, 17, 194);
     text-decoration: none;
 }
 
@@ -308,6 +322,6 @@ header ul li a:hover {
 }
 
 .btn-singin:hover {
-    background: rgb(194, 17, 17);
+    background: rgb(29, 17, 194);
     text-decoration: none;
 }
