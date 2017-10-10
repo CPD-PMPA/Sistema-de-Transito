@@ -1,9 +1,12 @@
 const express = require('express')
-const router = express.Router()
+const auth = require("../controller/auth")
 
-router.post('/', (req, res) => {
-    res.send(req.body)
-})
+const useDB = ({ connection }) => {
+    const router = express.Router()
+    router.post('/', auth.home.bind(null, connection))
 
 
-module.exports = router
+    return router
+}
+
+module.exports = useDB

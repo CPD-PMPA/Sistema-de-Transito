@@ -5,15 +5,27 @@
             <div class="col-md-4 mx-auto">
                 <form class="form-signin" method="post" action="authenticate">
                     <h2 class="form-signin-heading">Please sign in</h2>
+
                     <div class="form-group">
-                        <label for="idEmail" class="sr-only">Email address</label>
-                        <input type="email" name="email" id="idEmail" class="form-control" placeholder="Email address" required autofocus>
+                        <label for="idUsuario" class="sr-only">Username</label>
+                        <input type="text" name="usuario" id="idUsuario" class="form-control" placeholder="Username" required autofocus>
                     </div>
                     <div class="form-group">
                         <label for="idPassword" class="sr-only">Password</label>
                         <input type="password" id="idPassword" name="password" class="form-control" placeholder="Password" required>
                     </div>
                     <div class="checkbox">
+                    </div>
+
+                    <div class="form-group">
+                        <select class="form-control" name="papel">
+                            <option selected>Administrador</option>
+                            <option>Motorista</option>
+                        </select>
+                        <% if('error' in locals) { %>
+                            <div class="alert alert-danger"> Usuario/senha errada</div>
+
+                            <% } %>
                     </div>
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                 </form>
