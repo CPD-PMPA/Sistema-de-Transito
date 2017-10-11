@@ -198,11 +198,11 @@ select {
     background-color: rgba(255, 255, 255, 0.75);
     border-bottom: 3px solid rgb(29, 17, 194);
     border-top: 3px solid rgb(29, 17, 194);
-    margin-top: 40px;
-    position: relative;
+    margin: 40px;
     padding: 40px;
-    margin-bottom: -50px;
     height: 100%;
+    border-left: 2px solid #3a3738;
+    border-right: 2px solid #3a3738;
 }
 
 header {
@@ -210,7 +210,7 @@ header {
     width: 100%;
     padding-top: 20px;
     border-bottom: 3px solid rgb(29, 17, 194);
-    height: 85px;
+    height: 65px;
     position: relative;
     font-size: 20px;
 }
@@ -220,7 +220,7 @@ header ul {
 }
 
 header ul li {
-    display: inline-block;
+    display: inline-block !important;
 }
 
 header ul li a {
@@ -238,7 +238,7 @@ header ul li a:hover {
 footer {
     background-color: rgba(255, 255, 255, 0.75);
     border-top: 3px solid rgb(29, 17, 194);
-    height: 30px;
+    height: 23px;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -286,7 +286,7 @@ footer .fontup {
 }
 
 .btnhome:hover {
-    background: rgb(29, 17, 194);
+    background: rgb(5, 0, 66);
     text-decoration: none;
 }
 
@@ -315,14 +315,48 @@ footer .fontup {
     right: 0;
 }
 
-.btn-singin {
-    background: #272829;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 25px !important;
+.btnsingin {
+    height: 55px;
+    font-size: 30px;
 }
 
-.btn-singin:hover {
-    background: rgb(29, 17, 194);
-    text-decoration: none;
+.typetext {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 3px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.typetext:focus {
+    border: 2px solid #555;
+}
+
+h2 {
+    font-size: 50px;
+    margin: auto;
+    color: rgb(29, 17, 194);
+}
+
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
 }

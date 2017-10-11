@@ -1,32 +1,24 @@
 <% include partials/header %>
     <div class="container">
-
         <div class="content">
-            <div class="col-md-4 mx-auto">
-                <form class="form-signin" method="post" action="/home">
-                    <h2 class="form-signin-heading">Sing In</h2>
-
-                    <div class="form-group">
+            <div class="container_12">
+                <form class="grid_4 prefix_4 sufix_3" method="post" action="/home">
+                    <h2 >Sing In</h2>
                         <label for="idUsuario" class="sr-only">Username</label>
-                        <input type="text" name="usuario" id="idUsuario" class="form-control" placeholder="Username" required autofocus>
-                    </div>
-                    <div class="form-group">
+                        <input type="text" name="usuario" id="idUsuario" class="typetext" placeholder="Username" required autofocus>
                         <label for="idPassword" class="sr-only">Password</label>
-                        <input type="password" id="idPassword" name="password" class="form-control" placeholder="Password" required>
-                    </div>
-                    <div class="checkbox">
-                    </div>
-
-                    <div class="form-group">
-                        <select class="form-control" name="papel">
+                        <input type="password" id="idPassword" name="password" class="typetext" placeholder="Password" required>
+                        <select class="typetext" name="papel">
                             <option selected>Administrador</option>
                             <option>Motorista</option>
                         </select>
                         <% if('error' in locals) { %>
-                            <div class="alert alert-danger"> Usuario ou senha errado!</div>
+                            <div class="alert">
+                                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                                Usuário ou Senha Inválido
+                            </div>
                             <% } %>
-                    </div>
-                    <button class="btn btn-lg btn-singin btn-block" type="submit">Sign in</button>
+                    <button class="btnhome btnsingin typetext" type="submit"> <span>Logar</span></button>
                 </form>
             </div>
         </div>
