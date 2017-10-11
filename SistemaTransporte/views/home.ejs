@@ -5,11 +5,12 @@
                 <div class="ola">
                     <div class="grid_12">
                         <p><span>Olá,</span>
-                            <%= payload.username %> logado como [
-                                <%=payload.papel %> ] você deseja:</p>
+                            <%= locals.user.name %> logado como [
+                                <%=locals.user.papel %> ] você deseja:</p>
                     </div>
+                    
                     <div class="grid_12">
-                        <button class="btnhome" type="submit"> <span>Cadastrar</span> </button>
+                        <a href="adm/cadastrar"><button class="btnhome" type="submit"> <span>Cadastrar</span> </button></a>
                         <button class="btnhome" type="submit"> <span>Consultar</span> </button>
                         <button class="btnhome" type="submit"> <span>Relatórios</span> </button>
                     </div>

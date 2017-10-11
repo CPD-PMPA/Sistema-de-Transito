@@ -132,7 +132,8 @@ a {
 
 a:hover,
 a:focus {
-    color: #fd3f0b;
+    color: rgb(29, 17, 194);
+    ;
 }
 
 

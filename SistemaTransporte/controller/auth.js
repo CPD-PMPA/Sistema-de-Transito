@@ -1,39 +1,50 @@
-const jwt = require('jsonwebtoken')
 const userModel = require("../model/auth")
-const secret = 'Sistema de transporte'
+
 
 const home = async(connection, req, res) => {
-    let user = []
+    let userDB = []
 
     if (req.body.papel == '') {
         res.redirect('/login')
         return false
     } else if (req.body.papel == 'Administrador') {
-        user = await userModel.findOneAdm(connection, req)
-    } else if (req.body.mot == 'Motorista') {
-        user = await userModel.findOneAdm(connection, req)
+        userDB = await userModel.findOneAdm(connection, req)
+    } else if (req.body.papel == 'Motorista') {
+        userDB = await userModel.findOneMot(connection, req)
     }
 
 
-    if (user.length == 0) {
+    if (userDB.length == 0) {
         res.locals.error = true
         res.render('login')
         return false
 
     }
 
-    const payload = {
-        username: user[0].username,
-        papel: user[0].papel,
+    let user = {
+        name: userDB[0].nome,
+        papel: userDB[0].papel,
+        username: userDB[0].username
     }
 
-    jwt.sign(payload, secret, (err, token) => {
-        res.header('x-access-token', token)
-        res.render('home', { payload })
-    })
+    req.session.user = user
+    res.locals.user = user
+
+    res.render('home')
+
 
 }
 
+
+const homePage = (req, res) => {
+    if ('user' in req.session) {
+        res.render('home')
+    } else {
+        res.redirect('/')
+    }
+}
+
 module.exports = {
-    home
+    home,
+    homePage
 }
