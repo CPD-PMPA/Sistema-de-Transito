@@ -29,6 +29,7 @@ const index = require('./routes/index')
 const useDB = require('./routes/authenticate')
 const logout = require('./routes/logout')
 const adm = require('./routes/administrador')
+const changeRole = require('./routes/changeRole')
     //setting post
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -42,6 +43,7 @@ app.use((req, res, next) => {
 
     if ('user' in req.session) {
         res.locals.user = req.session.user
+        res.locals.papel = req.session.papel
     }
     next()
 })
@@ -49,7 +51,8 @@ app.use((req, res, next) => {
 app.use('/', index)
 app.use('/home', useDB(preference))
 app.use('/logout', logout)
-app.use('/adm', adm.router)
+app.use('/adm', adm.useDB(preference))
+app.use('/changeRole', changeRole)
 
 
 connection.connect(err => {

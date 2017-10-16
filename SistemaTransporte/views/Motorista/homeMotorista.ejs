@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+
+<h1 style="color: white" align="center">Motorista</h1>
+
+
+                <% if(locals.user.papel.length > 1) { %>
+                    <form method="post"  action="/changeRole">
+                        <select name="role">
+                            <% locals.user.papel.forEach(content => { %>
+                                <option <%if (content == locals.papel) { %>selected <%}%>><%= content %></option>
+                           <% }) %>
+                        </select>
+                        <input type="submit" value="Mudar"/>
+                    </form>
+
+               <% } %>
+
+<% include ../partials/footer %>
