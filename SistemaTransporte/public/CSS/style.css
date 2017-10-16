@@ -373,3 +373,17 @@ h2 {
 .change:focus {
     border: 2px solid #555;
 }
+
+.form {
+    width: 33%;
+    padding: 12px 20px;
+    margin: 3px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form:focus {
+    border: 2px solid #555;
+}
