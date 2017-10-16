@@ -8,25 +8,12 @@
                             <%= locals.user.name %> logado como [
                                 <%=locals.papel %> ] você deseja:</p>
                     </div>
-                    
+    
                     <div class="grid_12">
                         <a href="adm/cadastrar"><button class="btnhome" type="submit"> <span>Cadastrar</span> </button></a>
                         <a href="adm/consultar"><button class="btnhome" type="submit"> <span>Consultar</span> </button></a>
                         <a href="adm/relatorios"><button class="btnhome" type="submit"> <span>Relatórios</span> </button></a>
-                    </div>
-
-                <% if(locals.user.papel.length > 1) { %>
-                    <form method="post"  action="/changeRole">
-                        <select name="role">
-                            <% locals.user.papel.forEach(content => { %>
-                                <option <%if (content == locals.papel) { %>selected <%}%>><%= content %></option>
-                           <% }) %>
-                        </select>
-                        <input type="submit" value="Mudar"/>
-                    </form>
-
-               <% } %>
-                    
+                    </div>                    
                 </div>
             </div>
         </div>

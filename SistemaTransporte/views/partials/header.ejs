@@ -15,13 +15,24 @@
     <header>
         <div class="container_12">
             <a href="http://www.pousoalegre.mg.gov.br/" target="_blank"> <img src="img/logo.png" class="logo" alt="logo"> </a>
-            <div class="grid_5 prefix_7">
+            <div class="grid_4 prefix_5">
                 <ul>
                     <% if('user' in locals)  { %>
                     <li><a href="/home">Home</a></li>   
                     <li><a href="/logout">Sair</a></li>
-                    <%}%>  
                 </ul>
+            </div>
+            <div class="grid_3"> 
+                    <% if(locals.user.papel.length > 1) { %>                            
+                        <form method="post" class="change" action="/changeRole" onChange="this.submit()">
+                            <select name="role" class="typetext">
+                                <% locals.user.papel.forEach(content => { %>
+                                    <option <%if (content == locals.papel) { %>selected <%}%>><%= content %></option>
+                                    <% }) %>
+                            </select>
+                    </form>
+                 <% } %>
+                    <%}%>              
             </div>
         </div>
     </header>

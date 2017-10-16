@@ -360,3 +360,16 @@ h2 {
 .closebtn:hover {
     color: black;
 }
+
+.change {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 2px 0;
+    margin-top: -13px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.change:focus {
+    border: 2px solid #555;
+}
