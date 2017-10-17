@@ -12,14 +12,13 @@
                 <input type="text" class="form" placeholder="Classe" required autofocus>
                 <input type="text" class="form" placeholder="Turno" required autofocus>
                 <input type="text" class="form" placeholder="Escola/Instituição" required autofocus>
-                <input type="text" class="form" placeholder="Observação" required autofocus>
-                <label class="form" for="resp">Informe o nome do responsável: </label>
-                <input id="resp" list="responsavel" class="form" name="responsavel">
+                <input id="resp" list="responsavel" class="form" name="responsavel" placeholder="Informe o nome do Responsável">
                     <datalist id="responsavel">
                         <% result.forEach(content => { %>
-                            <option value="<%=content.id%>"><%=content.nome%></option>
+                            <option value="<%=content.nome%>"><%=content.cpf%></option>
                        <% }) %>
-                    </datalist>
+                    </datalist> 
+                <textarea data-ls-module="charCounter" maxlength="150" placeholder="Observação"></textarea>
                 <button class="btnhome btnsingin typetext" type="submit"> <span>Enviar</span></button>
                 </form>
             </div>       
