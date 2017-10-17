@@ -1,3 +1,5 @@
+const modelAcompanhantes = require('../../model/acompanhantes')
+
 const cadastrar = (req, res) => {
     res.render('Administrador/cadastrar')
 }
@@ -14,8 +16,15 @@ const acompanhantes = (req, res) => {
     res.render('Administrador/cadastrar/acompanhante')
 }
 
-const alunos = (req, res) => {
-    res.render('Administrador/cadastrar/alunos')
+const alunos = async(connection, req, res) => {
+    try {
+        const result = await modelAcompanhantes.findAcompanhantes(connection)
+        res.render('Administrador/cadastrar/alunos', { result })
+    } catch (err) {
+        res.redirect('/')
+    }
+
+
 }
 
 const escolas = (req, res) => {

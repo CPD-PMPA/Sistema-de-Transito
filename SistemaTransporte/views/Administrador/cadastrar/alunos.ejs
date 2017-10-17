@@ -3,17 +3,25 @@
         <div class="content">
             <div class="container_12">
                 <h2>Cadastrar Aluno</h2>
-                <input type="text" name="" id="" class="form" placeholder="Nome" required autofocus>
-                <input type="date" name="" id="" class="form" placeholder="Data de Nascimento" required autofocus>
-                <input type="text" name="" id="" class="form" placeholder="Endereço Residência" required autofocus>
-                <input type="text" name="" id="" class="form" placeholder="Endereço Ponto de Embarque/Desembarque" required autofocus>
-                <input type="text" name="" id="" class="form" placeholder="Série" required autofocus>
-                <input type="text" name="" id="" class="form" placeholder="Classe" required autofocus>
-                <input type="text" name="" id="" class="form" placeholder="Turno" required autofocus>
-                <input type="text" name="" id="" class="form" placeholder="Escola/Instituição" required autofocus>
-                <input type="text" name="" id="" class="form" placeholder="Observação" required autofocus>
-                
+                <form method="post">
+                <input type="text" class="form" placeholder="Nome" required autofocus>
+                <input type="date" class="form" placeholder="Data de Nascimento" required autofocus>
+                <input type="text" class="form" placeholder="Endereço Residência" required autofocus>
+                <input type="text" class="form" placeholder="Endereço Ponto de Embarque/Desembarque" required autofocus>
+                <input type="text" class="form" placeholder="Série" required autofocus>
+                <input type="text" class="form" placeholder="Classe" required autofocus>
+                <input type="text" class="form" placeholder="Turno" required autofocus>
+                <input type="text" class="form" placeholder="Escola/Instituição" required autofocus>
+                <input type="text" class="form" placeholder="Observação" required autofocus>
+                <label class="form" for="resp">Informe o nome do responsável: </label>
+                <input id="resp" list="responsavel" class="form" name="responsavel">
+                    <datalist id="responsavel">
+                        <% result.forEach(content => { %>
+                            <option value="<%=content.id%>"><%=content.nome%></option>
+                       <% }) %>
+                    </datalist>
                 <button class="btnhome btnsingin typetext" type="submit"> <span>Enviar</span></button>
+                </form>
             </div>       
         </div>        
     </div>
