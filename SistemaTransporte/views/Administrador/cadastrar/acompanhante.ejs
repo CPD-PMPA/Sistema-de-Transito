@@ -10,6 +10,13 @@
                     <input type="text" name="rua" id="idRua" class="form" placeholder="Rua" required autofocus>
                     <input type="text" name="numero" id="idNumero" class="form" placeholder="Numero" required autofocus>
                     <input type="text" name="bairro" id="idBairro" class="form" placeholder="Bairro" required autofocus>
+                    <input id="aluno" list="alunos" class="form" name="alunos" placeholder="Informe o nome do Aluno">
+                    <datalist id="alunos">
+                        <% alunos.forEach(content => { %>
+                            <input type="text" name="id" value="<%=content.id%>" hidden>
+                            <option value="<%=content.nome%>"></option>
+                       <% }) %>
+                    </datalist> 
                     <button class="btnhome btnsingin typetext" type="submit"> <span>Enviar</span></button>
                 </div>  
             </form>     
