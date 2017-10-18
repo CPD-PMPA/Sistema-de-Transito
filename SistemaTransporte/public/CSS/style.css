@@ -398,7 +398,7 @@ h2 {
     box-sizing: border-box;
 }
 
-.form:focus {
+.form100:focus {
     border: 2px solid #555;
 }
 
@@ -410,4 +410,45 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+.form25 {
+    width: 24%;
+    padding: 12px 20px;
+    margin: 3px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form25:focus {
+    border: 2px solid #555;
+}
+
+.form50 {
+    width: 49%;
+    padding: 12px 20px;
+    margin: 3px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form50:focus {
+    border: 2px solid #555;
+}
+
+.checkbox {
+    width: 22px;
+    height: 22px;
+    margin: -2px 10px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.font {
+    font-size: 20px;
+    cursor: pointer;
 }
