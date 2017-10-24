@@ -1,9 +1,9 @@
 const md5 = require('md5')
 
-const addAcompanhantes = (connection, req) => {
+const addRotas = (connection, req) => {
     return new Promise(async(resolve, reject) => {
         const data = req.body
-        let sql = `INSERT INTO acompanhante (nome, celular, parentesco, rua, numero, bairro)
+        let sql = `INSERT INTO rotas (nome, celular, parentesco, rua, numero, bairro)
          VALUES ('${data.nome}','${data.celular}','${data.parentesco}','${data.rua}','${data.numero}','${data.bairro}')`
 
         connection.query(sql, (err, result) => {
@@ -18,9 +18,9 @@ const addAcompanhantes = (connection, req) => {
 }
 
 
-const findAcompanhantes = async(connection, req, res) => {
+const findRotas = async(connection, req, res) => {
     return new Promise(async(resolve, reject) => {
-        await connection.query(`SELECT * FROM acompanhante`, (err, data) => {
+        await connection.query(`SELECT * FROM rotas`, (err, data) => {
             if (err) {
                 reject(err)
             } else {
@@ -31,6 +31,6 @@ const findAcompanhantes = async(connection, req, res) => {
 }
 
 module.exports = {
-    addAcompanhantes,
-    findAcompanhantes
+    addRotas,
+    findRotas
 }

@@ -1,11 +1,12 @@
-const modelAcompanhantes = require('../../model/acompanhantes')
+const modelRotas = require('../../model/rotas')
 const modelResponsavel = require('../../model/responsavel')
 const modelEscola = require("../../model/escolas/escolas")
 const modelVeiculo = require("../../model/veiculo/veiculo")
 
-const novoAcompanhantes = async(connection, req, res) => {
+
+const novaRota = async(connection, req, res) => {
     try {
-        const result = await modelAcompanhantes.addAcompanhantes(connection, req)
+        const result = await modelRotas.addRota(connection, req)
         res.redirect('/adm/cadastrar')
     } catch (error) {
         res.redirect('/')
@@ -43,7 +44,7 @@ const novoVeiculo = async(connection, req, res) => {
 }
 
 module.exports = {
-    novoAcompanhantes,
+    novaRota,
     novaEscola,
     novoVeiculo
 }

@@ -1,5 +1,7 @@
-const modelAcompanhantes = require('../../model/acompanhantes')
+const modelRotas = require('../../model/rotas')
 const modelAlunos = require('../../model/alunos/alunos')
+const modelVeiculos = require('../../model/veiculo/veiculo')
+const modelResponsavel = require('../../model/responsavel')
 
 const cadastrar = (req, res) => {
     res.render('Administrador/cadastrar')
@@ -13,10 +15,10 @@ const relatorios = (req, res) => {
     res.render('Administrador/relatorios')
 }
 
-const acompanhantes = async(connection, req, res) => {
+const rotas = async(connection, req, res) => {
     try {
-        const alunos = await modelAlunos.getAlunos(connection)
-        res.render('Administrador/cadastrar/acompanhante', { alunos })
+        const veiculos = await modelVeiculos.getVeiculos(connection)
+        res.render('Administrador/cadastrar/rotas', { veiculos })
     } catch (error) {
         res.redirect("/")
     }
@@ -25,9 +27,10 @@ const acompanhantes = async(connection, req, res) => {
 
 const alunos = async(connection, req, res) => {
     try {
-        const result = await modelAcompanhantes.findAcompanhantes(connection)
+        const result = await modelResponsavel.findResponsavel(connection)
         res.render('Administrador/cadastrar/alunos', { result })
     } catch (err) {
+        console.log('MERDA' + err)
         res.redirect('/')
     }
 
@@ -54,7 +57,7 @@ module.exports = {
     cadastrar,
     consultar,
     relatorios,
-    acompanhantes,
+    rotas,
     alunos,
     escolas,
     motorista,

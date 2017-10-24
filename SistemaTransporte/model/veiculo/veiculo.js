@@ -16,7 +16,20 @@ const addVeiculo = (connection, req) => {
     })
 }
 
+const getVeiculos = (connection) => {
+    return new Promise((resolve, reject) => {
+        let sql = `SELECT * FROM veiculo`
+        connection.query(sql, (err, result) => {
+            if (err) {
+                reject(err)
+            } else {
+                resolve(result)
+            }
+        })
+    })
+}
 
 module.exports = {
-    addVeiculo
+    addVeiculo,
+    getVeiculos
 }

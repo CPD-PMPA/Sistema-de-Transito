@@ -18,8 +18,8 @@ router.use((req, res, next) => {
 const useDB = ({ connection }) => {
     // funções cadastrar
     router.get('/cadastrar', administradorController.cadastrar)
-    router.get('/cadastrar/acompanhantes', administradorController.acompanhantes.bind(null, connection))
-    router.post('/cadastrar/acompanhantes', addController.novoAcompanhantes.bind(null, connection))
+    router.get('/cadastrar/rotas', administradorController.rotas.bind(null, connection))
+    router.post('/cadastrar/rotas', addController.novaRota.bind(null, connection))
     router.get('/cadastrar/alunos', administradorController.alunos.bind(null, connection))
     router.post('/cadastrar/alunos', (req, res) => {
         res.send(req.body)
