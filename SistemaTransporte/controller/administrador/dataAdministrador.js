@@ -1,6 +1,7 @@
 const modelAcompanhantes = require('../../model/acompanhantes')
 const modelResponsavel = require('../../model/responsavel')
 const modelEscola = require("../../model/escolas/escolas")
+const modelVeiculo = require("../../model/veiculo/veiculo")
 
 const novoAcompanhantes = async(connection, req, res) => {
     try {
@@ -15,7 +16,8 @@ const novoAcompanhantes = async(connection, req, res) => {
 const novaEscola = async(connection, req, res) => {
     try {
         await modelEscola.addEscola(connection, req)
-        res.redirect('/adm/cadastrar')
+        res.redirect('/adm/cadastrar?true') //confirmação de cadastro efetuado com sucesso
+
     } catch (error) {
         res.redirect('/')
     }
@@ -25,7 +27,16 @@ const novaEscola = async(connection, req, res) => {
 const novoResponsavel = async(conection, req, res) => {
     try {
         const result = await modelResponsavel.addResponsavel(conection, req)
-        res.redirect('/adm/cadastrar')
+        res.redirect('/adm/cadastrar?true')
+    } catch (error) {
+        res.redirect('/')
+    }
+}
+
+const novoVeiculo = async(connection, req, res) => {
+    try {
+        await modelVeiculo.addVeiculo(connection, req)
+        res.redirect('/adm/cadastrar?true')
     } catch (error) {
         res.redirect('/')
     }
@@ -33,5 +44,6 @@ const novoResponsavel = async(conection, req, res) => {
 
 module.exports = {
     novoAcompanhantes,
-    novaEscola
+    novaEscola,
+    novoVeiculo
 }

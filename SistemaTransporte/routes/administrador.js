@@ -30,6 +30,7 @@ const useDB = ({ connection }) => {
     router.get('/cadastrar/motoristas', administradorController.motorista)
     router.get('/cadastrar/responsaveis', administradorController.responsaveis)
     router.get('/cadastrar/veiculos', administradorController.veiculos)
+    router.post('/cadastrar/veiculos', addController.novoVeiculo.bind(null, connection))
         // fim cadastrar
 
 

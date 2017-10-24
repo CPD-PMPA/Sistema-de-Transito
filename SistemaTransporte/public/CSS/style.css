@@ -452,3 +452,29 @@ textarea {
     font-size: 20px;
     cursor: pointer;
 }
+
+@keyframes animacao_sucesso {
+    0% {
+        position: relative;
+        left: -90px
+    }
+    100% {
+        position: relative;
+        left: 800px
+    }
+}
+
+.esconde {
+    display: none;
+}
+
+.cadastro_sucesso {
+    background-color: green;
+    width: 325px;
+    padding: 10px;
+    color: #f1f1f1;
+    animation-name: animacao_sucesso;
+    animation-duration: 5s;
+    border-radius: 30px;
+    border: 1px solid #fff;
+}
