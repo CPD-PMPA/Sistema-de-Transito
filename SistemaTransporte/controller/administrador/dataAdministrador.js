@@ -2,7 +2,7 @@ const modelRotas = require('../../model/rotas')
 const modelResponsavel = require('../../model/responsavel')
 const modelEscola = require("../../model/escolas/escolas")
 const modelVeiculo = require("../../model/veiculo/veiculo")
-
+const modelMotorista = require("../../model/motorista/motorista")
 
 const novaRota = async(connection, req, res) => {
     try {
@@ -24,7 +24,6 @@ const novaEscola = async(connection, req, res) => {
     }
 }
 
-
 const novoResponsavel = async(conection, req, res) => {
     try {
         const result = await modelResponsavel.addResponsavel(conection, req)
@@ -43,8 +42,18 @@ const novoVeiculo = async(connection, req, res) => {
     }
 }
 
+const novoMotorista = async(connection, req, res) => {
+    try {
+        await modelMotorista.addMotorista(connection, req)
+        res.redirect('/adm/cadastrar?true')
+    } catch (error) {
+        res.redirect('/')
+    }
+}
+
 module.exports = {
     novaRota,
     novaEscola,
-    novoVeiculo
+    novoVeiculo,
+    novoMotorista
 }

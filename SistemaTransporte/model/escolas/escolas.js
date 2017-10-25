@@ -14,7 +14,20 @@ const addEscola = (connection, req) => {
 
 }
 
+const getEscola = (connection) => {
+    return new Promise((resolve, reject) => {
+        connection.query("SELECT * FROM escola", (err, result) => {
+            if (err) {
+                reject(err)
+            } else {
+                resolve(result)
+            }
+        })
+    })
+}
+
 
 module.exports = {
-    addEscola
+    addEscola,
+    getEscola
 }

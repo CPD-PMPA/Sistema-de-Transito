@@ -13,18 +13,51 @@
                 <select class="form" name="turno">
                     <option>Manhã</option>
                     <option>Tarde</option>
-                    <option>Noite</option>
-                    
+                    <option>Noite</option>  
                 </select>
-                <input type="text" class="form" placeholder="Escola/Instituição" required autofocus>
-                <input id="resp" list="responsavel" class="form" name="responsavel" placeholder="Informe o nome do Responsável">
-                    <datalist id="responsavel">
-                        <% result.forEach(content => { %>
-                            <option value="<%=content.nome%>"><%=content.cpf%></option>
+                <input type="text" list="escolas" class="form" placeholder="Escola/Instituição" required autofocus>
+                 <datalist id="escolas">
+                        <% escola.forEach(content => { %>
+                            <option><%=content.nome%></option>
                        <% }) %>
-                    </datalist> 
+                    </datalist>
+              
+             
+                 <input id="carro" list="veiculos" class="form" name="veiculo_ida" placeholder="Veículo de ida: ">
+                    <datalist id="veiculos">
+                        <% veiculo.forEach(content => { %>
+                            <option><%=content.placa%></option>
+                       <% }) %>
+                    </datalist>
+                    <input id="carro_volta" list="veiculos" class="form" name="veiculo_volta" placeholder="Veículo de volta: ">
+                    <datalist id="veiculos">
+                        <% veiculo.forEach(content => { %>
+                            <option><%=content.placa%></option>
+                       <% }) %>
+                    </datalist>     
                 <textarea data-ls-module="charCounter" maxlength="200" placeholder="Observação"></textarea>
                 <button class="btnhome btnsingin typetext" type="submit"> <span>Enviar</span></button>
+                
+                <!-- Responsável -->
+                <h2>Cadastrar Responsáveis</h2>
+                <input type="text" name="nome" id="idNome" class="form" placeholder="Nome" required autofocus>
+                <input type="text" name="celular01" id="idCelular01" class="form" placeholder="Telefone/Celular 01" required autofocus>
+                <input type="text" name="celular02" id="idCelular02" class="form" placeholder="Telefone/Celular 02" required autofocus>
+                <input type="text" name="cpf" id="idCpf" class="form" placeholder="CPF" required autofocus>
+                <select class="form" name="turno">
+                    <option>Responsável Legal</option>
+                    <option>Mãe</option>
+                    <option>Pai</option>
+                    <option>Vó</option>
+                    <option>Vô</option>
+                    <option>Irmão</option>
+                    <option>Irmã</option>
+                    <option>Tio</option>
+                    <option>Tia</option>
+                </select>
+                <input type="text" name="endereco" id="idEndereco" class="form" placeholder="Endereço" required autofocus>
+                <button class="btnhome btnsingin typetext" type="submit"> <span>Enviar</span></button>
+                
                 </form>
             </div>       
         </div>        

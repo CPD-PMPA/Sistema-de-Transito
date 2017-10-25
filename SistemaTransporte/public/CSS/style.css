@@ -427,7 +427,7 @@ textarea {
 }
 
 .form50 {
-    width: 49%;
+    width: 49.7%;
     padding: 12px 20px;
     margin: 3px 0;
     display: inline-block;
@@ -465,16 +465,17 @@ textarea {
 }
 
 .esconde {
+    transition: 2s;
     display: none;
 }
 
 .cadastro_sucesso {
-    background-color: green;
-    width: 325px;
+    background-color: rgb(2, 56, 2);
+    width: 260px;
     padding: 10px;
     color: #f1f1f1;
     animation-name: animacao_sucesso;
     animation-duration: 5s;
-    border-radius: 30px;
+    border-radius: 20px;
     border: 1px solid #fff;
 }

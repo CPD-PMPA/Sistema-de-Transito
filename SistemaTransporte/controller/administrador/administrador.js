@@ -2,6 +2,8 @@ const modelRotas = require('../../model/rotas')
 const modelAlunos = require('../../model/alunos/alunos')
 const modelVeiculos = require('../../model/veiculo/veiculo')
 const modelResponsavel = require('../../model/responsavel')
+const modelMotorista = require('../../model/motorista/motorista')
+const modelEscola = require('../../model/escolas/escolas')
 
 const cadastrar = (req, res) => {
     res.render('Administrador/cadastrar')
@@ -18,23 +20,26 @@ const relatorios = (req, res) => {
 const rotas = async(connection, req, res) => {
     try {
         const veiculos = await modelVeiculos.getVeiculos(connection)
+
         res.render('Administrador/cadastrar/rotas', { veiculos })
     } catch (error) {
-        res.redirect("/")
+        res.redirect("/logout")
     }
 }
 
-
 const alunos = async(connection, req, res) => {
     try {
-        const result = await modelResponsavel.findResponsavel(connection)
-        res.render('Administrador/cadastrar/alunos', { result })
+
+        const veiculo = await modelVeiculos.getVeiculos(connection)
+        const escola = await modelEscola.getEscola(connection)
+        res.render('Administrador/cadastrar/alunos', {
+            responsavel,
+            veiculo,
+            escola
+        })
     } catch (err) {
-        console.log('MERDA' + err)
-        res.redirect('/')
+        res.redirect('/logout')
     }
-
-
 }
 
 const escolas = (req, res) => {
@@ -43,6 +48,7 @@ const escolas = (req, res) => {
 
 const motorista = (req, res) => {
     res.render('Administrador/cadastrar/motorista')
+
 }
 
 const responsaveis = (req, res) => {

@@ -18,8 +18,10 @@ router.use((req, res, next) => {
 const useDB = ({ connection }) => {
     // funções cadastrar
     router.get('/cadastrar', administradorController.cadastrar)
+
     router.get('/cadastrar/rotas', administradorController.rotas.bind(null, connection))
     router.post('/cadastrar/rotas', addController.novaRota.bind(null, connection))
+
     router.get('/cadastrar/alunos', administradorController.alunos.bind(null, connection))
     router.post('/cadastrar/alunos', (req, res) => {
         res.send(req.body)
@@ -28,7 +30,11 @@ const useDB = ({ connection }) => {
     router.post('/cadastrar/escolas', addController.novaEscola.bind(null, connection))
 
     router.get('/cadastrar/motoristas', administradorController.motorista)
+    router.post('/cadastrar/motoristas', addController.novoMotorista.bind(null, connection))
+
     router.get('/cadastrar/responsaveis', administradorController.responsaveis)
+    router.post('/cadastrar/responsaveis', administradorController.responsaveis)
+
     router.get('/cadastrar/veiculos', administradorController.veiculos)
     router.post('/cadastrar/veiculos', addController.novoVeiculo.bind(null, connection))
         // fim cadastrar
