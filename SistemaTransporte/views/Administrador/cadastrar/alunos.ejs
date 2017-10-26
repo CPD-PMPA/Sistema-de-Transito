@@ -3,19 +3,26 @@
         <div class="content">
             <div class="container_12">
                 <h2>Cadastrar Aluno</h2>
-                <form method="post">
-                <input type="text" class="form" placeholder="Nome" required autofocus>
-                <input type="date" class="form" placeholder="Data de Nascimento" required autofocus>
-                <input type="text" class="form" placeholder="Endereço Residência" required autofocus>
-                <input type="text" class="form" placeholder="Endereço Ponto de Embarque/Desembarque" required autofocus>
-                <input type="text" class="form" placeholder="Série" required autofocus>
-                <input type="text" class="form" placeholder="Classe" required autofocus>
+                <form method="post" id="formulario_aluno">
+                <input type="text" name="nome" class="form" placeholder="Nome" required autofocus>
+                <input type="text" name="nascimento" class="form" placeholder="Data de Nascimento" onkeyup="
+                    var v = this.value;
+                    if (v.match(/^\d{2}$/) !== null) {
+                        this.value = v + '/';
+                    } else if (v.match(/^\d{2}\/\d{2}$/) !== null) {
+                        this.value = v + '/';
+                    }" maxlength="10" autofocus required>
+                <input type="text" name="endereco" class="form" placeholder="Endereço Residência" required autofocus>
+                <input type="text" name="ponto_embarque" class="form" placeholder="Endereço Ponto de Embarque" required autofocus>
+                <input type="text" name="ponto_desembarque" class="form" placeholder="Endereço Ponto de Desembarque" required autofocus>
+                <input type="text" name="serie" class="form" placeholder="Série" required autofocus>
+                <input type="text" name="classe" class="form" placeholder="Classe" required autofocus>
                 <select class="form" name="turno">
                     <option>Manhã</option>
                     <option>Tarde</option>
                     <option>Noite</option>  
                 </select>
-                <input type="text" list="escolas" class="form" placeholder="Escola/Instituição" required autofocus>
+                <input type="text" name="escola" list="escolas" class="form" placeholder="Escola/Instituição" required autofocus>
                  <datalist id="escolas">
                         <% escola.forEach(content => { %>
                             <option><%=content.nome%></option>
@@ -36,30 +43,29 @@
                        <% }) %>
                     </datalist>     
                 <textarea data-ls-module="charCounter" maxlength="200" placeholder="Observação"></textarea>
-                <button class="btnhome btnsingin typetext" type="submit"> <span>Enviar</span></button>
                 
-                <!-- Responsável -->
-                <h2>Cadastrar Responsáveis</h2>
-                <input type="text" name="nome" id="idNome" class="form" placeholder="Nome" required autofocus>
-                <input type="text" name="celular01" id="idCelular01" class="form" placeholder="Telefone/Celular 01" required autofocus>
-                <input type="text" name="celular02" id="idCelular02" class="form" placeholder="Telefone/Celular 02" required autofocus>
-                <input type="text" name="cpf" id="idCpf" class="form" placeholder="CPF" required autofocus>
-                <select class="form" name="turno">
+            <!-- Responsável -->
+            <h2>Cadastrar Responsáveis</h2>
+                <div id="form_respon">
+                <input type="text" name="nome[]" id="idNome" class="form" placeholder="Nome" required autofocus>
+                <input type="text" name="celular01[]" id="idCelular01" class="form" placeholder="Telefone/Celular 01" required autofocus>
+                <input type="text" name="celular02[]" id="idCelular02" class="form" placeholder="Telefone/Celular 02" required autofocus>
+                <input type="text" name="cpf[]" id="idCpf" class="form" placeholder="CPF" required autofocus>
+                <select class="form" name="turno[]">
                     <option>Responsável Legal</option>
-                    <option>Mãe</option>
-                    <option>Pai</option>
-                    <option>Vó</option>
-                    <option>Vô</option>
-                    <option>Irmão</option>
-                    <option>Irmã</option>
-                    <option>Tio</option>
-                    <option>Tia</option>
+                    <option>Pais</option>
+                    <option>Avós</option>
+                    <option>Irmãos</option>
+                    <option>Tios</option>
+                    <option>Outros</option>
                 </select>
-                <input type="text" name="endereco" id="idEndereco" class="form" placeholder="Endereço" required autofocus>
-                <button class="btnhome btnsingin typetext" type="submit"> <span>Enviar</span></button>
-                
+                <input type="text" name="endereco[]" id="idEndereco" class="form" placeholder="Endereço" required autofocus>
                 </form>
+                <hr />
+                </div>
+                <button class="btnhome btnsingin typetext" type="submit"> <span>Enviar</span></button>
+                <button class ="form25" onclick="duplicarForm()">Adicionar</button>
             </div>       
         </div>        
     </div>
-<% include ../../partials/footer %>
+<!-- <% include ../../partials/footer %> -->

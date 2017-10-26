@@ -47,7 +47,8 @@ const novoMotorista = async(connection, req, res) => {
         await modelMotorista.addMotorista(connection, req)
         res.redirect('/adm/cadastrar?true')
     } catch (error) {
-        res.redirect('/')
+        console.log(error)
+        res.redirect('/logout')
     }
 }
 

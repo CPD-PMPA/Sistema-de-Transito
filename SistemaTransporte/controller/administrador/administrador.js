@@ -33,7 +33,6 @@ const alunos = async(connection, req, res) => {
         const veiculo = await modelVeiculos.getVeiculos(connection)
         const escola = await modelEscola.getEscola(connection)
         res.render('Administrador/cadastrar/alunos', {
-            responsavel,
             veiculo,
             escola
         })
