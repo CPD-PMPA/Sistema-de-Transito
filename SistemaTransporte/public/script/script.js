@@ -12,10 +12,17 @@ if (correct) {
 var cont = 0;
 
 function duplicarForm() {
-    if (cont <= 1) {
+    if (cont == 0) {
+        document.getElementById("formu_responsavel").style.display = 'block'
+        document.getElementById("choice").disabled = true
+        document.getElementById("choice").style.display = 'none'
+        cont++
+        return false
+    }
+    if (cont <= 2) {
         var formResponsavel = document.getElementById("form_respon")
         var novoForm = formResponsavel.cloneNode(true)
-        document.getElementById('formulario_aluno').appendChild(novoForm)
+        document.getElementById('formu_responsavel').appendChild(novoForm)
         cont++
     } else {
         return false

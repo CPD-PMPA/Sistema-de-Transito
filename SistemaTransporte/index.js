@@ -31,7 +31,7 @@ const logout = require('./routes/logout')
 const adm = require('./routes/administrador')
 const changeRole = require('./routes/changeRole')
     //setting post
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true, parameterLimit: 1000000 }))
 
 //setting public paste
 app.use(express.static('public'))

@@ -4,6 +4,8 @@ const modelVeiculos = require('../../model/veiculo/veiculo')
 const modelResponsavel = require('../../model/responsavel')
 const modelMotorista = require('../../model/motorista/motorista')
 const modelEscola = require('../../model/escolas/escolas')
+const { bairros } = require('../../bairros.json')
+
 
 const cadastrar = (req, res) => {
     res.render('Administrador/cadastrar')
@@ -30,11 +32,14 @@ const rotas = async(connection, req, res) => {
 const alunos = async(connection, req, res) => {
     try {
 
+        const responsaveis = await modelResponsavel.findResponsavel(connection)
         const veiculo = await modelVeiculos.getVeiculos(connection)
         const escola = await modelEscola.getEscola(connection)
         res.render('Administrador/cadastrar/alunos', {
             veiculo,
-            escola
+            escola,
+            bairros,
+            responsaveis
         })
     } catch (err) {
         res.redirect('/logout')

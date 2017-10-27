@@ -23,9 +23,8 @@ const useDB = ({ connection }) => {
     router.post('/cadastrar/rotas', addController.novaRota.bind(null, connection))
 
     router.get('/cadastrar/alunos', administradorController.alunos.bind(null, connection))
-    router.post('/cadastrar/alunos', (req, res) => {
-        res.send(req.body)
-    })
+    router.post('/cadastrar/alunos', addController.addAluno.bind(null, connection))
+
     router.get('/cadastrar/escolas', administradorController.escolas)
     router.post('/cadastrar/escolas', addController.novaEscola.bind(null, connection))
 
