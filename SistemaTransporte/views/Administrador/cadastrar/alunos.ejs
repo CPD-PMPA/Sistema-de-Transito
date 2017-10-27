@@ -3,6 +3,8 @@
         <div class="content">
             <div class="container_12">
                 <h2>Cadastrar Aluno</h2>
+                <hr />
+                <h3>Informações do Aluno</h3>
                 <form method="post" id="formulario_aluno">
                 <input type="text" name="nome_aluno" class="form" placeholder="Nome" required autofocus>
                 <input type="text" name="nascimento" class="form" placeholder="Data de Nascimento" onkeyup="
@@ -13,6 +15,7 @@
                         this.value = v + '/';
                     }" maxlength="10" autofocus required>
                <div>
+               <hr />
                     <h3>Endereço</h3>
                     <input class="form" type="text" name="bairro" list="bairros" class="form" placeholder="Informe o bairro" required autofocus maxlength="30">
                      <datalist id="bairros">
@@ -25,6 +28,7 @@
                 
                 </div>
                 <div>
+                <hr />
                     <h3>Endereço de embarque</h3>
                     <input class="form" type="text" name="bairro_embarque" list="bairros" class="form" placeholder="Informe o bairro de embarque" required autofocus maxlength="30">
                      <datalist id="bairros">
@@ -36,8 +40,9 @@
                 
                 </div>
                             <div>
+                            <hr />
                     <h3>Endereço de desembarque</h3>
-                    <input class="form" type="text" name="bairro_desembarque" list="bairros" class="form" placeholder="Informe o bairro de embarque" required autofocus maxlength="30">
+                    <input class="form" type="text" name="bairro_desembarque" list="bairros" class="form" placeholder="Informe o bairro de desembarque" required autofocus maxlength="30">
                      <datalist id="bairros">
                             <%  bairros.forEach(content => { %>
                                 <option><%= content %></option>
@@ -48,6 +53,7 @@
                 </div>
 
                <div>
+               <hr />
                 <h3>Informações da escola</h3>
                 <select class="form" name="serie">
                 <option value="inicial">Inicial</option>
@@ -93,11 +99,12 @@
                </div> 
 
             <!-- Responsável -->
-            <h3>Escolha responsável</h3>
-                <input type="text" name="idResponsavel" id="choice" style="display: block" list="responsaveis" class="form" placeholder="Responsaveis" autofocus>
+            <hr />
+            <h3>Escolha/Cadastre Responsável</h3>
+                <input type="text" name="idResponsavel" id="choice" style="display: block" list="responsaveis" class="form100" placeholder="Responsaveis" autofocus>
                  <datalist id="responsaveis">
                         <% responsaveis.forEach(content => { %>
-                            <option value="<%=content.id%>"><%=content.nome%></option>
+                            <option value="<%=content.id%>" hidden><%=content.nome%></option>
                        <% }) %>
                     </datalist>
 
@@ -121,8 +128,7 @@
                 </div>
                 <button class="btnhome btnsingin typetext" type="submit"> <span>Enviar</span></button>
                 </form>
-                <button class ="form50" onclick="duplicarForm()">Adicionar novo Responsável</button>
+                <button class="btnhome btnsingin typetext" onclick="duplicarForm()">Adicionar Novo Responsável</button>
             </div>       
         </div>        
     </div>
-<!-- <% include ../../partials/footer %> -->
