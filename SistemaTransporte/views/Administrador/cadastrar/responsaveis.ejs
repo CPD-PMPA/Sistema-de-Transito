@@ -3,24 +3,42 @@
         <div class="content">
             <div class="container_12">
                 <h2>Cadastrar Responsáveis</h2>
+                <form method="post">
                 <input type="text" name="nome" id="idNome" class="form" placeholder="Nome" required autofocus>
                 <input type="text" name="celular01" id="idCelular01" class="form" placeholder="Telefone/Celular 01" required autofocus>
                 <input type="text" name="celular02" id="idCelular02" class="form" placeholder="Telefone/Celular 02" required autofocus>
                 <input type="text" name="cpf" id="idCpf" class="form" placeholder="CPF" required autofocus>
                 <select class="form" name="turno">
-                    <option>Responsável Legal</option>
-                    <option>Mãe</option>
-                    <option>Pai</option>
-                    <option>Vó</option>
-                    <option>Vô</option>
-                    <option>Irmão</option>
-                    <option>Irmã</option>
-                    <option>Tio</option>
-                    <option>Tia</option>
+                    <option selected>Pais</option>   
+                    <option>Avós</option>
+                    <option>Irmãos</option>
+                    <option>Tios</option>
+                    <option>Outros</option>
                 </select>
-                <input type="text" name="endereco" id="idEndereco" class="form" placeholder="Endereço" required autofocus>
+                <div>
+                <h3>Endereço</h3>
+                    <input placeholder="Informe bairro" type="text" required class="form"/>
+                    <input placeholder="Rua" type="text" required class="form"/>
+                    <input placeholder="Número" type="text" required class="form"/>
+                </div>
+
+                <div>
+                    <h3>Escolha o aluno</h3>
+                    <input type="text" maxlength="100" id="idAluno" placeholder="Escolha o Aluno" list="alunos" class="form campoAluno"/>
+                    <datalist id="alunos">
+                        <option class="opcoes"></option>
+                    </datalist>
+                    <div class="mensagemError">
+                        <h4></h4>
+                    </div>
+                </div>
                 <button class="btnhome btnsingin typetext" type="submit"> <span>Enviar</span></button>
+            </div>
             </div>       
         </div>        
     </div>
+
+ <script type="text/javascript" src="/script/jquery-3.2.1.min.js"></script>
+ <script type="text/javascript" src="/script/jquery.mask.min.js"></script>
+ <script type="text/javascript" src="/script/responsavel.js"></script>   
 <% include ../../partials/footer %>

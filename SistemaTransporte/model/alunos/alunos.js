@@ -1,3 +1,17 @@
+const getAlunosLike = (connection, req) => {
+
+    return new Promise((resolve, reject) => {
+        connection.query(`SELECT * FROM aluno WHERE nome LIKE '%${req.body.key}%'`, (err, result) => {
+            if (err) {
+                reject(err)
+            } else {
+                resolve(result)
+            }
+        })
+    })
+}
+
+
 const getAlunos = (connection) => {
     return new Promise((resolve, reject) => {
         connection.query('SELECT * FROM aluno', (err, result) => {
@@ -58,6 +72,7 @@ const addAluno = (connection, req) => {
 module.exports = {
     getAlunos,
     confereAluno,
-    addAluno
+    addAluno,
+    getAlunosLike
 
 }

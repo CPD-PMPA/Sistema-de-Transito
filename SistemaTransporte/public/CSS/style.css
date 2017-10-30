@@ -479,3 +479,13 @@ textarea {
     border-radius: 20px;
     border: 1px solid #fff;
 }
+
+.error {
+    border: 1px solid red;
+    outline: 0;
+}
+
+.error:focus {
+    border: 1px solid red;
+    outline: 0 !important;
+}

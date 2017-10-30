@@ -29,7 +29,54 @@ const getVeiculos = (connection) => {
     })
 }
 
+const ligarAlunoVeiculo = (connection, req, ultimoID) => {
+   return new Promise((resolve, reject) => {
+    let sqlFind = `SELECT * FROM veiculo WHERE placa = '${req.body.veiculo_ida}'`
+    connection.query(sqlFind, (err, result) => {
+        if(err) {
+            reject(err)
+        } else  {
+            connection.query(`SELECT * FROM veiculo WHERE placa = '${req.body.veiculo_volta}'`, (e, r) => {
+                if(result.length == 0 && r.length > 0) {
+                        connection.query(`INSERT INTO onibus_alunos (id_aluno, placa_veiculoVolta)
+                         VALUES ('${ultimoID.lastID}', '${req.body.veiculo_volta}')`, (error, rs) => {
+                            if(err) {
+                                reject(err)
+                            } else {
+                                resolve(true)
+                            }
+                         })
+                } else if(result.length > 0 && r.length > 0) {
+
+                      connection.query(`INSERT INTO onibus_alunos (id_aluno, placa_veiculo, placa_veiculoVolta)
+                         VALUES ('${ultimoID.lastID}', '${req.body.veiculo_ida}','${req.body.veiculo_volta}')`, (error, rs) => {
+                            if(err) {
+                                reject(err)
+                            } else {
+                                resolve(true)
+                            }
+                         })
+                } else if(result.length > 0 && r.length == 0) {
+
+                    connection.query(`INSERT INTO onibus_alunos (id_aluno, placa_veiculo)
+                         VALUES ('${ultimoID.lastID}', '${req.body.veiculo_ida}')`, (error, rs) => {
+                            if(err) {
+                                reject(err)
+                            } else {
+                                resolve(true)
+                            }
+                         })
+                } else {
+                    resolve(true)
+                }
+            })
+        }
+    })
+   })
+}
+
 module.exports = {
     addVeiculo,
-    getVeiculos
+    getVeiculos,
+    ligarAlunoVeiculo
 }

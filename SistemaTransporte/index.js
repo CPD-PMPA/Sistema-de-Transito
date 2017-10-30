@@ -30,6 +30,7 @@ const useDB = require('./routes/authenticate')
 const logout = require('./routes/logout')
 const adm = require('./routes/administrador')
 const changeRole = require('./routes/changeRole')
+const ajax = require('./routes/ajax')
     //setting post
 app.use(bodyParser.urlencoded({ extended: true, parameterLimit: 1000000 }))
 
@@ -53,6 +54,7 @@ app.use('/home', useDB(preference))
 app.use('/logout', logout)
 app.use('/adm', adm.useDB(preference))
 app.use('/changeRole', changeRole)
+app.use('/ajax', ajax(preference))
 
 
 connection.connect(err => {

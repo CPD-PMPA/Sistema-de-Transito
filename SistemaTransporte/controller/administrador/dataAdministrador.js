@@ -57,6 +57,7 @@ const addAluno = async(connection, req, res) => {
         await modelAluno.confereAluno(connection, req)
         let ultimoId = await modelAluno.addAluno(connection, req)
         await modelResponsavel.ligarResp_Aluno(connection, req, ultimoId)
+        await modelVeiculo.ligarAlunoVeiculo(connection, req, ultimoId)
         res.redirect('/adm/cadastrar?true')
     } catch (error) {
         console.log(error)
