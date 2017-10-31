@@ -32,7 +32,7 @@ const useDB = ({ connection }) => {
     router.post('/cadastrar/motoristas', addController.novoMotorista.bind(null, connection))
 
     router.get('/cadastrar/responsaveis', administradorController.responsaveis)
-    router.post('/cadastrar/responsaveis', administradorController.responsaveis)
+    router.post('/cadastrar/responsaveis', (req, res) => console.log(req.body))
 
     router.get('/cadastrar/veiculos', administradorController.veiculos)
     router.post('/cadastrar/veiculos', addController.novoVeiculo.bind(null, connection))
