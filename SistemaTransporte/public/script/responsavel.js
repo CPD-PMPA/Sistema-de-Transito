@@ -3,13 +3,13 @@ var index = 0
 $(document).ready(function() {
 
     $('#botaoAdicionar').bind('click', function() {
-        let otherCampo = ` <div id="campoAluno"> 
+        let otherCampo = ` <div id="campoAluno${index + 1}"> 
                     <input data-x="${index + 1}" class="form alunos" type="text" name="nome_aluno[]" maxlength="100" id="idAluno${index + 1}" placeholder="Escolha o Aluno" list="alunos${index + 1}" class="form campoAluno" onkeyup="clickTeclado(this)"/>
                     
                     <datalist id="alunos${index + 1}">
                         <option class="opcoes"></option>
                     </datalist>
-                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                    <span class="closebtn" onclick="removeComponent(this)">&times;</span> 
                     <div class="mensagemError${index + 1}">
                         <h4></h4>
                     </div>
@@ -55,6 +55,10 @@ $(document).ready(function() {
 
     })
 })
+
+function removeComponent(component) {
+    $(component).parent().remove()
+}
 
 
 
