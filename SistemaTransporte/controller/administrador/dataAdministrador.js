@@ -25,11 +25,13 @@ const novaEscola = async(connection, req, res) => {
     }
 }
 
-const novoResponsavel = async(conection, req, res) => {
+const novoResponsavel = async(connection, req, res) => {
     try {
-        const result = await modelResponsavel.addResponsavel(conection, req)
+        const result = await modelResponsavel.addResponsavel(connection, req)
+        await modelResponsavel.linkResponsavelAluno(connection, req, result)
         res.redirect('/adm/cadastrar?true')
     } catch (error) {
+        console.log(error)
         res.redirect('/')
     }
 }
@@ -70,5 +72,6 @@ module.exports = {
     novaEscola,
     novoVeiculo,
     novoMotorista,
-    addAluno
+    addAluno,
+    novoResponsavel
 }

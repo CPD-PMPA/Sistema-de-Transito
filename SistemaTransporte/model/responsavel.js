@@ -3,14 +3,14 @@ const md5 = require('md5')
 const addResponsavel = (connection, req) => {
     return new Promise(async(resolve, reject) => {
         const data = req.body
-        let sql = `INSERT INTO responsaveis (nome, celular01, celular02, cpf, parentesco, endereco)
-         VALUES ('${data.nome}','${data.celular01}','${data.celular02}','${data.cpf}','${data.parentesco}','${data.endereco}','${data}')`
+        let sql = `INSERT INTO responsaveis (nome, celular01, celular02, cpf, bairro, rua, numero)
+         VALUES ('${data.nome}','${data.celular01}','${data.celular02}','${data.cpf}','${data.bairro}','${data.rua}','${data.numero}')`
 
         connection.query(sql, (err, result) => {
             if (err) {
                 reject(err)
             } else {
-                resolve(result)
+                resolve({ lastID: result.insertId })
             }
         })
 
@@ -46,9 +46,9 @@ const ligarResp_Aluno = (connection, req, ultimoID) => {
                 let resultados = Array()
 
                 for (let i in req.body.nome) {
-                    connection.query(`INSERT INTO responsaveis (nome, celular01, celular02, cpf, parentesco) VALUES
+                    connection.query(`INSERT INTO responsaveis (nome, celular01, celular02, cpf, bairro, rua, numero) VALUES
                     ('${req.body.nome[i]}', '${req.body.celular01[i]}', '${req.body.celular02[i]}',
-                     '${req.body.cpf[i]}', '${req.body.parentesco[i]}')`, async(err, result) => {
+                     '${req.body.cpf[i]}', '${req.body.bairro[i]}', '${req.body.rua[i]}', '${req.body.numero[i]}')`, async(err, result) => {
                         if (err) {
                             reject(err)
                         } else {
@@ -83,8 +83,43 @@ function responsaveis_aluno(ultimoidRes, ultimoID, connection, parentesco) {
     })
 }
 
+
+const linkResponsavelAluno = (connection, req, ultimoID) => {
+    let vetResult = Array()
+    return new Promise(async(resolve, reject) => {
+        for (let i in req.body.nome_aluno) {
+            try {
+                vetResult.push(await responsaveis_aluno(connection, req.body.nome_aluno[i], ultimoID, req.body.parentesco))
+
+                if (vetResult.length - 1 == req.body.nome_aluno.length - 1) {
+                    resolve(vetResult)
+                }
+
+            } catch (error) {
+                reject(error)
+            }
+        }
+
+    })
+}
+
+function responsavel_aluno(connection, idAluno, ultimoID, parentesco) {
+    return new Promise((resolve, reject) => {
+        let sql = `INSERT INTO responsaveis_aluno (id_aluno, id_responsavel, parentesco)
+         VALUES ('${idAluno}', '${ultimoID}', '${parentesco}')`
+        connection.query(sql, (err, result) => {
+            if (err) {
+                reject(err)
+            } else {
+                resolve(result)
+            }
+        })
+    })
+}
+
 module.exports = {
     addResponsavel,
     findResponsavel,
-    ligarResp_Aluno
+    ligarResp_Aluno,
+    linkResponsavelAluno
 }
