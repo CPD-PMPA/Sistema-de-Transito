@@ -11,7 +11,6 @@ const getAlunosLike = (connection, req) => {
     })
 }
 
-
 const getAlunos = (connection) => {
     return new Promise((resolve, reject) => {
         connection.query('SELECT * FROM aluno', (err, result) => {
@@ -25,7 +24,6 @@ const getAlunos = (connection) => {
 }
 
 const confereAluno = (connection, req) => {
-
     return new Promise((resolve, reject) => {
         connection.query(`SELECT * FROM aluno WHERE nome = '${req.body.nome_aluno.toLowerCase()}'`, (err, result) => {
 
@@ -37,9 +35,7 @@ const confereAluno = (connection, req) => {
                 resolve(true)
             }
         })
-
     })
-
 }
 
 const addAluno = (connection, req) => {
@@ -57,7 +53,6 @@ const addAluno = (connection, req) => {
                 , '${req.body.rua_desembarque}', '${req.body.bairro_desembarque}', '${req.body.serie}', '${req.body.classe}', '${req.body.turno}', 
                 '${req.body.escola}', '${req.body.veiculo_ida}', '${req.body.veiculo_volta}')`
 
-
         connection.query(sql, (err, result) => {
             if (err) {
                 reject(err)
@@ -67,7 +62,6 @@ const addAluno = (connection, req) => {
         })
     })
 }
-
 
 module.exports = {
     getAlunos,

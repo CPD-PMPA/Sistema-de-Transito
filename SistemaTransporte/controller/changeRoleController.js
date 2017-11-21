@@ -9,7 +9,6 @@ const changeRole = (req, res) => {
 
 }
 
-
 module.exports = {
     changeRole
 }

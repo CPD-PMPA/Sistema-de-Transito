@@ -31,7 +31,6 @@ const rotas = async(connection, req, res) => {
 
 const alunos = async(connection, req, res) => {
     try {
-
         const responsaveis = await modelResponsavel.findResponsavel(connection)
         const veiculo = await modelVeiculos.getVeiculos(connection)
         const escola = await modelEscola.getEscola(connection)

@@ -17,7 +17,6 @@ const addRotas = (connection, req) => {
     })
 }
 
-
 const findRotas = async(connection, req, res) => {
     return new Promise(async(resolve, reject) => {
         await connection.query(`SELECT * FROM rotas`, (err, data) => {

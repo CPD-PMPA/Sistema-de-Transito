@@ -17,7 +17,6 @@ const addResponsavel = (connection, req) => {
     })
 }
 
-
 const findResponsavel = async(connection, req, res) => {
     return new Promise(async(resolve, reject) => {
         await connection.query(`SELECT * FROM responsaveis`, (err, data) => {
@@ -69,7 +68,6 @@ const ligarResp_Aluno = (connection, req, ultimoID) => {
     })
 }
 
-
 function responsaveis_aluno(ultimoidRes, ultimoID, connection, parentesco) {
     return new Promise((resolve, reject) => {
         connection.query(`INSERT INTO responsaveis_aluno (id_aluno, id_responsavel, parentesco) VALUES 
@@ -82,7 +80,6 @@ function responsaveis_aluno(ultimoidRes, ultimoID, connection, parentesco) {
         })
     })
 }
-
 
 const linkResponsavelAluno = (connection, req, ultimoID) => {
     let vetResult = Array()

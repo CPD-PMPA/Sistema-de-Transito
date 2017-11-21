@@ -1,6 +1,5 @@
 const userModel = require("../model/auth")
 
-
 const home = async(connection, req, res) => {
     let userDB = []
 
@@ -12,7 +11,6 @@ const home = async(connection, req, res) => {
     } else if (req.body.papel == 'Motorista') {
         userDB = await userModel.findOneMot(connection, req)
     }
-
 
     if (userDB.length == 0) {
         res.locals.error = true
@@ -32,16 +30,11 @@ const home = async(connection, req, res) => {
     res.locals.user = user
     res.locals.papel = user.papel[0]
 
-
-
     if (user.papel.includes('Administrador')) {
         res.render('Administrador/homeAdm')
     } else if (user.papel.includes('Motorista')) {
         res.render('Motorista/homeMotorista')
     }
-
-
-
 }
 
 

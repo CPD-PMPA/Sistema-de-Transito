@@ -26,7 +26,6 @@ const getEscola = (connection) => {
     })
 }
 
-
 module.exports = {
     addEscola,
     getEscola
